@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Effective Mobile Test</string>
+        <!--  Menu  -->
+    <string name="menu_item_home">Home</string>
+    <string name="menu_item_favourite">Favourite</string>
+    <string name="menu_item_account">Account</string>
 </resources>
