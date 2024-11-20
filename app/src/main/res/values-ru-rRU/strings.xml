@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Effective Mobile Test</string>
-    <!--  Menu  -->
+        <!--  Menu  -->
     <string name="menu_item_home">Главная</string>
     <string name="menu_item_favourite">Избранное</string>
     <string name="menu_item_account">Аккаунт</string>
+
+        <!--  HomeFragment  -->
+    <string name="filter_description">фильтр</string>
+    <string name="search_courses_hint">Поиск курсов …</string>
+    <string name="sort_by_date">По дате добавления</string>
+    <string name="sort_by_rating">По рейтингу</string>
+    <string name="sort_by_popularity">По популярности</string>
 </resources>

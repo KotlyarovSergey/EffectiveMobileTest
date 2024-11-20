@@ -4,4 +4,11 @@
     <string name="menu_item_home">Home</string>
     <string name="menu_item_favourite">Favourite</string>
     <string name="menu_item_account">Account</string>
+
+        <!--  HomeFragment  -->
+    <string name="filter_description">filter</string>
+    <string name="search_courses_hint">Search courses …</string>
+    <string name="sort_by_date">By date of addition</string>
+    <string name="sort_by_rating">By rating</string>
+    <string name="sort_by_popularity">By popularity</string>
 </resources>
