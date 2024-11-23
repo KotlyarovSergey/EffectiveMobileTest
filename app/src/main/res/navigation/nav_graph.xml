@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.ksv.effectivemobiletest.HomeFragment"
+        android:name="com.ksv.effectivemobiletest.presentation.home.HomeFragment"
         android:label="HomeFragment" >
         <action
             android:id="@+id/action_homeFragment_to_courseFragment"
@@ -14,7 +14,7 @@
     </fragment>
     <fragment
         android:id="@+id/favouritesFragment"
-        android:name="com.ksv.effectivemobiletest.FavouritesFragment"
+        android:name="com.ksv.effectivemobiletest.presentation.FavouritesFragment"
         android:label="FavouritesFragment" >
         <action
             android:id="@+id/action_favouritesFragment_to_courseFragment"
@@ -22,10 +22,10 @@
     </fragment>
     <fragment
         android:id="@+id/accountFragment"
-        android:name="com.ksv.effectivemobiletest.AccountFragment"
+        android:name="com.ksv.effectivemobiletest.presentation.AccountFragment"
         android:label="AccountFragment" />
     <fragment
         android:id="@+id/courseFragment"
-        android:name="com.ksv.effectivemobiletest.CourseFragment"
+        android:name="com.ksv.effectivemobiletest.presentation.course.CourseFragment"
         android:label="CourseFragment" />
 </navigation>

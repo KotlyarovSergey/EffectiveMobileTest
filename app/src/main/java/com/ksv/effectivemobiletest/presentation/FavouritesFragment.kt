@@ -1,4 +1,4 @@
-package com.ksv.effectivemobiletest
+package com.ksv.effectivemobiletest.presentation
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import com.ksv.effectivemobiletest.R
 import com.ksv.effectivemobiletest.databinding.FragmentFavouritesBinding
 
 class FavouritesFragment : Fragment() {

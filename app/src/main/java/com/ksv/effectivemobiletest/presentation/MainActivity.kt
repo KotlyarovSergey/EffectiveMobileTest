@@ -1,14 +1,13 @@
-package com.ksv.effectivemobiletest
+package com.ksv.effectivemobiletest.presentation
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.ksv.effectivemobiletest.R
 import com.ksv.effectivemobiletest.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

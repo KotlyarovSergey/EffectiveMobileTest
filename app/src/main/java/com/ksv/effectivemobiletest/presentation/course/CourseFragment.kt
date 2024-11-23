@@ -1,4 +1,4 @@
-package com.ksv.effectivemobiletest
+package com.ksv.effectivemobiletest.presentation.course
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
