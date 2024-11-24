@@ -6,14 +6,18 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import com.ksv.effectivemobiletest.data.RetrofitInstance
 import com.ksv.effectivemobiletest.databinding.FragmentHomeBinding
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 
 class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
+    private val viewModel: HomeViewModel by viewModels()
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -24,39 +28,12 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.filterButton.setOnClickListener {
-            lifecycleScope.launch {
-                try {
-
-//                val response = RetrofitInstance.getApi.getCoursesResponse(221764)
-//                val response = RetrofitInstance.getApi.getCoursesByTag(55)
-//                    val response = RetrofitInstance.getApi.getCourses()
-//                    val response = RetrofitInstance.getApi.getCoursesList(1)
-                    val response = RetrofitInstance.getApi.getCourseReviewSummary(221574)
+        viewModel.courses.onEach { courses ->
+            val txt = courses.joinToString("\n") { it.name }
+            binding.sortButton.text = txt
+        }.launchIn(viewLifecycleOwner.lifecycleScope)
 
 
-//                val response = RetrofitInstance.getCourseApiResponse.getDataPhotosResponse(123)
-                    if (response.isSuccessful) {
-                        val reviewSummaryResponse = response.body()
-                        if (reviewSummaryResponse != null) {
-                            val rating = reviewSummaryResponse.summaries.first().average
-                            val txt = rating.toString()
-                            binding.searchEdit.setText(txt)
-                        } else {
-                            binding.searchEdit.text = null
-                        }
-                    } else {
-                        val txt = response.message()
-                        binding.searchEdit.setText(txt)
-
-                    }
-                } catch (ex: Exception) {
-                    Log.d("ksv", ex.message.toString())
-                    val txt = ex.message.toString()
-                    binding.searchEdit.setText(txt)
-                }
-            }
-        }
     }
 
     override fun onDestroyView() {

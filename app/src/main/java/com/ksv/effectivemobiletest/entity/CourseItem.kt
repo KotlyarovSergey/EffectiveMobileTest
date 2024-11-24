@@ -4,7 +4,7 @@ package com.ksv.effectivemobiletest.entity
 data class CourseItem(
     val id: Int,
     val name: String,
-    val rating: Float = 0.0f,
+    val rating: Double = 0.0,
     val date: String,
     val description: String,
     val isFavourite: Boolean = false,

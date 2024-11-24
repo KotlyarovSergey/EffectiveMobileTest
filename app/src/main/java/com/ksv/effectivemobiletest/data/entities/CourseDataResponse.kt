@@ -18,7 +18,7 @@ data class Courses(
     @Json(name = "title") val title: String,
     @Json(name = "update_date") val date: String,
     @Json(name = "summary") val summary: String,
-    @Json(name = "price") val price: Double,
+    @Json(name = "price") val price: Double?,
     @Json(name = "cover") val cover: String,
     @Json(name = "canonical_url") val url: String,
     @Json(name = "review_summary") val reviewSummary: Int
@@ -26,7 +26,7 @@ data class Courses(
 ){
     fun toCourseItem() = CourseItem(
         id = id,
-        cost = price.toInt(),
+        cost = price?.toInt() ?: 0,
         date = date,
         link = url,
         name = title,
