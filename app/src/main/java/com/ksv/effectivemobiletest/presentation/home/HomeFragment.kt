@@ -29,7 +29,7 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel.courses.onEach { courses ->
-            val txt = courses.joinToString("\n") { it.name }
+            val txt = courses.joinToString("\n") { "${it.rating.toString().substring(0..2)} ${it.name}" }
             binding.sortButton.text = txt
         }.launchIn(viewLifecycleOwner.lifecycleScope)
 
