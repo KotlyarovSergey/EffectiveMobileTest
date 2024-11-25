@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <FrameLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="4dp">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="15dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/dark_gray"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:orientation="horizontal">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="16dp">
+
+                        <ImageView
+                            android:id="@+id/cover"
+                            android:layout_width="120dp"
+                            android:layout_height="120dp"
+                            android:src="@drawable/cover_java" />
+                    </androidx.cardview.widget.CardView>
+
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="1.0"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/title"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="21sp"
+                            android:textColor="@color/white"
+                            android:textStyle="bold"
+                            tools:text="Профессия: Разработчик на Java (Junior)" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginVertical="4dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/rating"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:drawableStartCompat="@drawable/icon_star"
+                                android:drawablePadding="2dp"
+                                android:gravity="center_vertical"
+                                app:drawableTint="@color/green"
+                                android:textColor="@color/white"
+                                tools:text="4.9"/>
+
+                            <TextView
+                                android:id="@+id/date"
+                                android:layout_marginStart="16dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/white"
+                                tools:text="24 ноября 2024"/>
+
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/summary"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="#AFADAD"
+                            android:maxLines="3"
+                            tools:text="Профессия, которая поможет вам освоить Java с нуля. Вы научитесь разрабатывать программы, разбираться в Collections Framework, работать с многопоточностью и тестировать свои программы с помощью JUnit. Программа курсов также включает изучение Spring Framework, основ работы с Git, навыков SQL и работы в командной строке" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="16dp"
+                    android:paddingBottom="8dp">
+
+                    <TextView
+                        android:id="@+id/price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center|start"
+                        android:textSize="18sp"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        tools:text="2 990 Р" />
+
+                    <TextView
+                        android:id="@+id/details"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/green"
+                        android:layout_gravity="center|end"
+                        android:textSize="16sp"
+                        app:drawableEndCompat="@drawable/icon_right"
+                        android:drawablePadding="2dp"
+                        app:drawableTint="@color/green"
+                        tools:text="Подробнее" />
+
+                </FrameLayout>
+            </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
+    </FrameLayout>
+</layout>

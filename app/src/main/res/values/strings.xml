@@ -11,4 +11,6 @@
     <string name="sort_by_date">By date of addition</string>
     <string name="sort_by_rating">By rating</string>
     <string name="sort_by_popularity">By popularity</string>
+    <string name="cover">cover</string>
+    <string name="bookmark_image_description">bookmark</string>
 </resources>

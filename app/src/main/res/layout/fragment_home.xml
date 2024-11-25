@@ -75,6 +75,8 @@
             android:id="@+id/recycler"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            tools:itemCount="3"
+            tools:listitem="@layout/courese_card_view"
             android:layout_marginTop="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@id/sort_button" />
