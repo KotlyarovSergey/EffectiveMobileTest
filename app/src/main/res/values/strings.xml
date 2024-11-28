@@ -13,4 +13,7 @@
     <string name="sort_by_popularity">By popularity</string>
     <string name="cover">cover</string>
     <string name="bookmark_image_description">bookmark</string>
+    <string name="details_text">Details</string>
+    <string name="favourite_description">Favourite</string>
+    <string name="free_price">Free</string>
 </resources>

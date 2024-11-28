@@ -12,4 +12,9 @@
     <string name="sort_by_date">По дате добавления</string>
     <string name="sort_by_rating">По рейтингу</string>
     <string name="sort_by_popularity">По популярности</string>
+    <string name="bookmark_image_description">избранное</string>
+    <string name="details_text">Подробнее</string>
+    <string name="cover">обложка</string>
+    <string name="favourite_description">Избранное</string>
+    <string name="free_price">Бесплатно</string>
 </resources>

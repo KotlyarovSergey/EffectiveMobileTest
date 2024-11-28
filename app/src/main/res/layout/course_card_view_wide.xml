@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.ksv.effectivemobiletest.presentation.home.HomeViewModel" />
+
+        <variable
+            name="courseItem"
+            type="com.ksv.effectivemobiletest.entity.CourseItem" />
+
+        <import type="android.view.View" />
+        <import type="com.ksv.effectivemobiletest.R"/>
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        app:cardCornerRadius="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/dark_gray"
+            android:orientation="vertical">
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                app:cardCornerRadius="16dp">
+
+
+                <ImageView
+                    android:id="@+id/cover"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/cover"
+                    android:src="@drawable/cover_java"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageButton
+                    android:id="@+id/favourite"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top|end"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/round_shape"
+                    android:backgroundTint="@color/light_gray"
+                    android:contentDescription="@string/favourite_description"
+                    android:padding="16dp"
+                    android:src="@drawable/icon_bookmark"
+                    app:tint="@color/white" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|start"
+                    android:layout_margin="8dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/rating"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        android:autofillHints="@string/search_courses_hint"
+                        android:background="@drawable/round_shape"
+                        android:backgroundTint="@color/light_gray"
+                        android:drawablePadding="8dp"
+                        android:paddingHorizontal="16dp"
+                        android:paddingVertical="8dp"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:visibility="@{courseItem.rating > 0.0 ? View.VISIBLE : View.GONE}"
+                        app:drawableStartCompat="@drawable/icon_star"
+                        app:drawableTint="@color/green"
+                        tools:text="5.0" />
+
+                    <TextView
+                        android:id="@+id/date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        android:background="@drawable/round_shape"
+                        android:backgroundTint="@color/light_gray"
+                        android:drawablePadding="8dp"
+                        android:paddingHorizontal="16dp"
+                        android:paddingVertical="8dp"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        tools:text="24 Nov 2024" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@{courseItem.name}"
+                android:textColor="@color/white"
+                android:textSize="21sp"
+                android:textStyle="bold"
+                tools:text="Профессия: Разработчик на Java (Junior)" />
+
+            <TextView
+                android:id="@+id/summary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="16dp"
+                android:ellipsize="end"
+                android:maxLines="3"
+                android:text="@{courseItem.description}"
+                android:textColor="#AFADAD"
+                tools:text="Профессия, которая поможет вам освоить Java с нуля. Вы научитесь разрабатывать программы, разбираться в Collections Framework, работать с многопоточностью и тестировать свои программы с помощью JUnit. Программа курсов также включает изучение Spring Framework, основ работы с Git, навыков SQL и работы в командной строке" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp">
+
+                <TextView
+                    android:id="@+id/price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|start"
+                    android:textColor="@{courseItem.cost == 0 ? @color/green : @color/white}"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:text="@{courseItem.cost == 0 ? @string/free_price : Integer.valueOf(courseItem.cost).toString()}"
+                    tools:text="2 990 Р" />
+
+                <TextView
+                    android:id="@+id/details"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|end"
+                    android:drawablePadding="2dp"
+                    android:text="@string/details_text"
+                    android:textColor="@color/green"
+                    android:textSize="16sp"
+                    app:drawableEndCompat="@drawable/icon_right"
+                    app:drawableTint="@color/green" />
+
+            </FrameLayout>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</layout>
