@@ -14,21 +14,36 @@ class HomeViewModel : ViewModel() {
     private var coursesIdsList = listOf<Int>()
     private val _courses = MutableStateFlow<MutableList<CourseItem>>(mutableListOf())
     val courses = _courses.asStateFlow()
+    private val _isLoading = MutableStateFlow(false)
+    val isLoading = _isLoading.asStateFlow()
+
 
     init {
+        loadData()
+    }
+
+    private fun loadData() {
+        Log.d("ksvlog", "vm: loadData")
         val repo = Repository()
         viewModelScope.launch {
+            _isLoading.value = true
             coursesIdsList = repo.getNewestCoursesIdsList()
-            coursesIdsList.forEach { id ->
-                val course = repo.getCourseAtId(id)
-                if(course != null) {
-                    _courses.update {
-                        _courses.value.toMutableList().apply { this.add(course) }
+            Log.d("ksvlog", "vm: coursesList received")
+            if (coursesIdsList.isNotEmpty()) {
+                coursesIdsList.forEach { id ->
+                    val course = repo.getCourseAtId(id)
+                    _isLoading.value = false
+                    if (course != null) {
+                        _courses.update {
+                            _courses.value.toMutableList().apply { this.add(course) }
+                        }
+                        Log.d("ksvlog", "vm: course added to list. sz: ${_courses.value.size}")
                     }
                 }
+            } else {
+                _isLoading.value = false
             }
         }
     }
-
 
 }

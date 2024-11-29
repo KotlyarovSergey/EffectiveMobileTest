@@ -17,4 +17,5 @@
     <string name="cover">обложка</string>
     <string name="favourite_description">Избранное</string>
     <string name="free_price">Бесплатно</string>
+    <string name="empty_list_msg">Здесь будет список курсов</string>
 </resources>

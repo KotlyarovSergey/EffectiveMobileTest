@@ -16,4 +16,5 @@
     <string name="details_text">Details</string>
     <string name="favourite_description">Favourite</string>
     <string name="free_price">Free</string>
+    <string name="empty_list_msg">There will be a list of courses here</string>
 </resources>

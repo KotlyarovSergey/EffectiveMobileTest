@@ -140,7 +140,7 @@
                     android:textColor="@{courseItem.cost == 0 ? @color/green : @color/white}"
                     android:textSize="18sp"
                     android:textStyle="bold"
-                    android:text="@{courseItem.cost == 0 ? @string/free_price : Integer.valueOf(courseItem.cost).toString()}"
+                    android:text="@{courseItem.cost == 0 ? @string/free_price : courseItem.price}"
                     tools:text="2 990 Р" />
 
                 <TextView

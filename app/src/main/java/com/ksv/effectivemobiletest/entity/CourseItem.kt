@@ -9,6 +9,7 @@ data class CourseItem(
     val description: String,
     val isFavourite: Boolean = false,
     val cost: Int,
+    val price: String?,
     val img: String,
     val link: String
 ) {

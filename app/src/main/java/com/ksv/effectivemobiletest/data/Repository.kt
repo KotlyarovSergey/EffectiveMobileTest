@@ -24,7 +24,7 @@ class Repository {
                 emptyList()
             }
         } catch (exception: Exception) {
-            Log.d(
+            Log.e(
                 "ksvlog",
                 "Repository.getCoursesIdsAtList -> listId: $listId \n${exception.message}"
             )
@@ -48,6 +48,7 @@ class Repository {
                         name = course.title,
                         date = course.date,             // !!!!!!!!!! исправитжь
                         cost = course.price?.toInt() ?: 0,    // !!!!!!!!! исправить
+                        price = course.priceDisplayed,
                         link = course.url,
                         img = course.cover,
                         description = course.summary,
@@ -61,7 +62,7 @@ class Repository {
                 null
             }
         } catch (exception: Exception) {
-            Log.d(
+            Log.e(
                 "ksvlog",
                 "Repository.getCoursesFromIdsList -> courseId: $courseId \n${exception.message}"
             )
@@ -80,7 +81,7 @@ class Repository {
                 null
             }
         } catch (exception: Exception) {
-            Log.d(
+            Log.e(
                 "ksvlog",
                 "Repository.getRating -> reviewId: $reviewId \n${exception.message}"
             )

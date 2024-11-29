@@ -19,6 +19,7 @@ data class Courses(
     @Json(name = "update_date") val date: String,
     @Json(name = "summary") val summary: String,
     @Json(name = "price") val price: Double?,
+    @Json(name = "display_price") val priceDisplayed: String?,
     @Json(name = "cover") val cover: String,
     @Json(name = "canonical_url") val url: String,
     @Json(name = "review_summary") val reviewSummary: Int
@@ -31,6 +32,7 @@ data class Courses(
         link = url,
         name = title,
         img = cover,
+        price = priceDisplayed,
         description = summary
     )
 }
