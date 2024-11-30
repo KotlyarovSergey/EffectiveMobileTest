@@ -46,13 +46,14 @@ class Repository {
                     val courseItem = CourseItem(
                         id = course.id,
                         name = course.title,
-                        date = course.date,             // !!!!!!!!!! исправитжь
+                        date = course.date,
                         cost = course.price?.toInt() ?: 0,    // !!!!!!!!! исправить
                         price = course.priceDisplayed,
                         link = course.url,
                         img = course.cover,
                         description = course.summary,
-                        rating = rating ?: 0.0
+                        rating = rating ?: 0.0,
+                        learners = course.learners
                     )
                     courseItem
                 } else {

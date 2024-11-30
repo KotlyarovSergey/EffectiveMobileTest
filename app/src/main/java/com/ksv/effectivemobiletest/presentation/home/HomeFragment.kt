@@ -36,10 +36,13 @@ class HomeFragment : Fragment() {
 //        binding.recycler.layoutManager = LinearLayoutManager(requireContext())
         binding.recycler.adapter = recyclerListAdapter
 
-
+//        binding.sortButton.setOnClickListener {
+//            viewModel.changeSort()
+//        }
 
         viewModel.courses.onEach { courses ->
             recyclerListAdapter.submitList(courses)
+//            Log.d("ksvlog", "courses change")
         }.launchIn(viewLifecycleOwner.lifecycleScope)
 
 
