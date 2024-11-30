@@ -1,6 +1,5 @@
 package com.ksv.effectivemobiletest.entity
 
-
 data class CourseItem(
     val id: Int,
     val name: String,
@@ -11,10 +10,10 @@ data class CourseItem(
     val cost: Int,
     val price: String?,
     val img: String,
-    val link: String
+    val link: String,
+    val learners: Int
 ) {
     override fun toString(): String {
-//        return super.toString()
-        return "$name ${description.substring(0..10)}... $rating $date $cost"
+        return "id: $id, $name ${description.substring(0..10)}... $rating $date $cost $price $learners"
     }
 }
