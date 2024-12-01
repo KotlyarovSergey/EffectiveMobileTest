@@ -9,13 +9,16 @@
         <!--  HomeFragment  -->
     <string name="filter_description">фильтр</string>
     <string name="search_courses_hint">Поиск курсов …</string>
-    <string name="sort_by_date">По дате добавления</string>
-    <string name="sort_by_rating">По рейтингу</string>
-    <string name="sort_by_popularity">По популярности</string>
     <string name="bookmark_image_description">избранное</string>
     <string name="details_text">Подробнее</string>
     <string name="cover">обложка</string>
     <string name="favourite_description">Избранное</string>
     <string name="free_price">Бесплатно</string>
     <string name="empty_list_msg">Здесь будет список курсов</string>
+    <string name="sorting_fragment_title">Сначала показывать</string>
+    <string name="sorting_by_date">новинки</string>
+    <string name="sorting_by_rating">с высоким рейтигом</string>
+    <string name="sorting_by_popularity">самые популярные</string>
+    <string name="sorting_by_price_up">недорогие</string>
+    <string name="sorting_by_price_down">самые дорогие</string>
 </resources>

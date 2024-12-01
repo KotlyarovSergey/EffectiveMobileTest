@@ -1,5 +1,5 @@
 package com.ksv.effectivemobiletest.presentation.home
 
 enum class SortingTypes {
-    DATE_UP, DATE_DOWN, RATING_UP, RATING_DOWN, POPULARITY_UP, POPULARITY_DOWN, PRICE_UP, PRICE_DOWN, NONE
+    DATE_DOWN, RATING_DOWN, POPULARITY_DOWN, PRICE_UP, PRICE_DOWN
 }

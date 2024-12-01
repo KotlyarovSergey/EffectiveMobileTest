@@ -1,6 +1,5 @@
 package com.ksv.effectivemobiletest.presentation.home
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.ksv.effectivemobiletest.data.Repository
@@ -36,7 +35,7 @@ class HomeViewModel : ViewModel() {
                         _courses.update {
                             _courses.value.toMutableList().apply {
                                 this.add(course)
-                                sort(this)
+                                sortListByType(this)
                             }
                         }
                         //Log.d("ksvlog", "id:${course.id}: dt: ${course.date}")
@@ -48,34 +47,24 @@ class HomeViewModel : ViewModel() {
         }
     }
 
-    private fun sort(list: MutableList<CourseItem>) {
+    private fun sortListByType(list: MutableList<CourseItem>) {
         when (_sortingBy.value) {
-            SortingTypes.DATE_DOWN -> list.sortBy { it.date }
-            SortingTypes.DATE_UP -> list.sortByDescending { it.date }
-            SortingTypes.RATING_UP -> list.sortBy { it.rating }
+            SortingTypes.DATE_DOWN -> list.sortByDescending { it.date }
             SortingTypes.RATING_DOWN -> list.sortByDescending { it.rating }
-            SortingTypes.POPULARITY_UP -> list.sortBy { it.learners }
             SortingTypes.POPULARITY_DOWN -> list.sortByDescending { it.learners }
             SortingTypes.PRICE_UP -> list.sortBy { it.cost }
             SortingTypes.PRICE_DOWN -> list.sortByDescending { it.cost }
-            SortingTypes.NONE -> { }
         }
     }
 
-    private fun sortCourses() {
+    fun changeSort(newSortingType: SortingTypes) {
+        _sortingBy.value = newSortingType
+//        Log.d("ksvlog", "sortBy ${sortingBy.value}")
         _courses.update {
             _courses.value.toMutableList().apply {
-                sort(this)
+                sortListByType(this)
             }
         }
-    }
-
-    fun changeSort() {
-        val nextOrdinal = (_sortingBy.value.ordinal + 1) % SortingTypes.entries.size
-        val newSorting = SortingTypes.entries.toTypedArray()[nextOrdinal]
-        _sortingBy.value = newSorting
-        Log.d("ksvlog", "sortBy ${sortingBy.value}")
-        sortCourses()
     }
 
 }

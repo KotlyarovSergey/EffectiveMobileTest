@@ -1,20 +1,26 @@
 <resources>
     <string name="app_name">Effective Mobile Test</string>
-        <!--  Menu  -->
+    <!--  Menu  -->
     <string name="menu_item_home">Home</string>
     <string name="menu_item_favourite">Favourite</string>
     <string name="menu_item_account">Account</string>
 
-        <!--  HomeFragment  -->
+    <!--  HomeFragment  -->
     <string name="filter_description">filter</string>
     <string name="search_courses_hint">Search courses …</string>
-    <string name="sort_by_date">By date of addition</string>
-    <string name="sort_by_rating">By rating</string>
-    <string name="sort_by_popularity">By popularity</string>
     <string name="cover">cover</string>
     <string name="bookmark_image_description">bookmark</string>
     <string name="details_text">Details</string>
     <string name="favourite_description">Favourite</string>
     <string name="free_price">Free</string>
     <string name="empty_list_msg">There will be a list of courses here</string>
+
+
+
+    <string name="sorting_fragment_title">Show first</string>
+    <string name="sorting_by_date">newest</string>
+    <string name="sorting_by_rating">with a high rating</string>
+    <string name="sorting_by_popularity">most popular</string>
+    <string name="sorting_by_price_up">most inexpensive</string>
+    <string name="sorting_by_price_down">most expensive</string>
 </resources>

@@ -4,115 +4,117 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="viewModel"
             type="com.ksv.effectivemobiletest.presentation.home.HomeViewModel" />
+
         <import type="android.view.View" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="16dp"
-        tools:context=".presentation.home.HomeFragment">
+        android:layout_height="match_parent">
 
-        <com.google.android.material.search.SearchBar
-            android:id="@+id/search"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/dark_gray"
-            android:hint="@string/search_courses_hint"
-            android:textSize="18sp"
-            android:visibility="gone"
-            tools:visibility="visible"
-            app:layout_constraintTop_toTopOf="parent"
-            app:titleTextColor="@color/green" />
-
-        <EditText
-            android:id="@+id/search_edit"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:autofillHints="@string/search_courses_hint"
-            android:background="@drawable/round_shape"
-            android:drawableStart="@drawable/icon_search"
-            android:drawablePadding="16dp"
-            android:drawableTint="@color/white"
-            android:hint="@string/search_courses_hint"
-            android:inputType="text"
-            android:paddingHorizontal="16dp"
-            android:paddingVertical="16dp"
-            android:textColor="@color/white"
-            android:textColorHint="@color/white"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toStartOf="@id/filter_button"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/search" />
-
-        <ImageButton
-            android:id="@+id/filter_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/round_shape"
-            android:contentDescription="@string/filter_description"
+            android:layout_height="match_parent"
             android:padding="16dp"
-            android:src="@drawable/icon_filter"
-            app:layout_constraintBottom_toBottomOf="@id/search_edit"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/search_edit"
-            app:tint="@color/white" />
+            tools:context=".presentation.home.HomeFragment">
 
-        <TextView
-            android:id="@+id/sort_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:drawablePadding="2dp"
-            android:text="@string/sort_by_date"
-            android:onClickListener="@{() -> viewModel.changeSort()}"
-            android:textColor="@color/green"
-            android:textSize="16sp"
-            app:drawableEndCompat="@drawable/icon_sort"
-            app:drawableTint="@color/green"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/search_edit" />
-
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/sort_button">
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recycler"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="16dp"
-                tools:itemCount="3"
-                tools:visibility="invisible"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                tools:listitem="@layout/course_card_view_wide" />
-
-            <TextView
+            <com.google.android.material.search.SearchBar
+                android:id="@+id/search"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:text="@string/empty_list_msg"
-                android:textSize="48sp"
-                android:textAlignment="center"
-                android:visibility="@{viewModel.courses.size() == 0 ? View.VISIBLE : View.GONE}"/>
+                android:background="@color/dark_gray"
+                android:hint="@string/search_courses_hint"
+                android:textSize="18sp"
+                android:visibility="gone"
+                app:layout_constraintTop_toTopOf="parent"
+                app:titleTextColor="@color/green"
+                tools:visibility="visible" />
 
-            <ProgressBar
+            <EditText
+                android:id="@+id/search_edit"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:autofillHints="@string/search_courses_hint"
+                android:background="@drawable/round_shape"
+                android:drawableStart="@drawable/icon_search"
+                android:drawablePadding="16dp"
+                android:drawableTint="@color/white"
+                android:hint="@string/search_courses_hint"
+                android:inputType="text"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="16dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toStartOf="@id/filter_button"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/search" />
+
+            <ImageButton
+                android:id="@+id/filter_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:progress="@+id/progress"
-                android:visibility="@{viewModel.isLoading() ? View.VISIBLE : View.GONE}" />
+                android:background="@drawable/round_shape"
+                android:contentDescription="@string/filter_description"
+                android:padding="16dp"
+                android:src="@drawable/icon_filter"
+                app:layout_constraintBottom_toBottomOf="@id/search_edit"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/search_edit"
+                app:tint="@color/white" />
 
+            <TextView
+                android:id="@+id/sort_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:drawablePadding="2dp"
+                android:text=""
+                android:textColor="@color/green"
+                android:textSize="16sp"
+                app:drawableEndCompat="@drawable/icon_sort"
+                app:drawableTint="@color/green"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/search_edit" />
 
-        </FrameLayout>
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/sort_button">
 
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="16dp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:itemCount="3"
+                    tools:listitem="@layout/course_card_view_wide"
+                    tools:visibility="invisible" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:text="@string/empty_list_msg"
+                    android:textAlignment="center"
+                    android:textSize="48sp"
+                    android:visibility="@{viewModel.courses.size() == 0 ? View.VISIBLE : View.GONE}" />
+
+                <ProgressBar
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:progress="@+id/progress"
+                    android:visibility="@{viewModel.isLoading() ? View.VISIBLE : View.GONE}" />
+
+            </FrameLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>
