@@ -16,7 +16,8 @@ class HomeViewModel : ViewModel() {
     val courses = _courses.asStateFlow()
     private val _isLoading = MutableStateFlow(false)
     val isLoading = _isLoading.asStateFlow()
-    private var sortingBy = SortingTypes.DATE_DOWN
+    private val _sortingBy = MutableStateFlow(SortingTypes.DATE_DOWN)
+    val sortingBy = _sortingBy.asStateFlow()
 
     init {
         loadData()
@@ -48,14 +49,16 @@ class HomeViewModel : ViewModel() {
     }
 
     private fun sort(list: MutableList<CourseItem>) {
-        when (sortingBy) {
+        when (_sortingBy.value) {
             SortingTypes.DATE_DOWN -> list.sortBy { it.date }
             SortingTypes.DATE_UP -> list.sortByDescending { it.date }
             SortingTypes.RATING_UP -> list.sortBy { it.rating }
             SortingTypes.RATING_DOWN -> list.sortByDescending { it.rating }
             SortingTypes.POPULARITY_UP -> list.sortBy { it.learners }
             SortingTypes.POPULARITY_DOWN -> list.sortByDescending { it.learners }
-            else -> {}
+            SortingTypes.PRICE_UP -> list.sortBy { it.cost }
+            SortingTypes.PRICE_DOWN -> list.sortByDescending { it.cost }
+            SortingTypes.NONE -> { }
         }
     }
 
@@ -68,10 +71,10 @@ class HomeViewModel : ViewModel() {
     }
 
     fun changeSort() {
-        val nextOrdinal = (sortingBy.ordinal + 1) % SortingTypes.entries.size
+        val nextOrdinal = (_sortingBy.value.ordinal + 1) % SortingTypes.entries.size
         val newSorting = SortingTypes.entries.toTypedArray()[nextOrdinal]
-        sortingBy = newSorting
-        Log.d("ksvlog", "sortBy $sortingBy")
+        _sortingBy.value = newSorting
+        Log.d("ksvlog", "sortBy ${sortingBy.value}")
         sortCourses()
     }
 
