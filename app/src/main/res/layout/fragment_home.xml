@@ -22,18 +22,6 @@
             android:padding="16dp"
             tools:context=".presentation.home.HomeFragment">
 
-            <com.google.android.material.search.SearchBar
-                android:id="@+id/search"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/dark_gray"
-                android:hint="@string/search_courses_hint"
-                android:textSize="18sp"
-                android:visibility="gone"
-                app:layout_constraintTop_toTopOf="parent"
-                app:titleTextColor="@color/green"
-                tools:visibility="visible" />
-
             <EditText
                 android:id="@+id/search_edit"
                 android:layout_width="0dp"
@@ -46,6 +34,7 @@
                 android:drawableTint="@color/white"
                 android:hint="@string/search_courses_hint"
                 android:inputType="text"
+                android:enabled="false"
                 android:paddingHorizontal="16dp"
                 android:paddingVertical="16dp"
                 android:textColor="@color/white"
@@ -53,7 +42,7 @@
                 android:textSize="18sp"
                 app:layout_constraintEnd_toStartOf="@id/filter_button"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/search" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageButton
                 android:id="@+id/filter_button"

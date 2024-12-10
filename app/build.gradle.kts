@@ -52,6 +52,8 @@ dependencies {
     ksp(libs.moshi.kotlin.codegen)
     implementation(libs.glide)
     annotationProcessor(libs.compiler)
+    implementation(libs.androidx.paging.runtime)
+
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)

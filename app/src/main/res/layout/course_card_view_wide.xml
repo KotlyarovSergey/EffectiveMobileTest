@@ -14,7 +14,8 @@
             type="com.ksv.effectivemobiletest.entity.CourseItem" />
 
         <import type="android.view.View" />
-        <import type="com.ksv.effectivemobiletest.R"/>
+
+        <import type="com.ksv.effectivemobiletest.R" />
     </data>
 
     <androidx.cardview.widget.CardView
@@ -29,20 +30,18 @@
             android:background="@color/dark_gray"
             android:orientation="vertical">
 
-
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                    android:layout_height="180dp"
+                android:layout_height="180dp"
                 app:cardCornerRadius="16dp">
-
 
                 <ImageView
                     android:id="@+id/cover"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:contentDescription="@string/cover"
-                    android:src="@drawable/cover_java"
                     android:scaleType="centerCrop"
+                    tools:src="@drawable/cover_java"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageButton
@@ -137,10 +136,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center|start"
+                    android:text="@{courseItem.cost == 0 ? @string/free_price : courseItem.price}"
                     android:textColor="@{courseItem.cost == 0 ? @color/green : @color/white}"
                     android:textSize="18sp"
                     android:textStyle="bold"
-                    android:text="@{courseItem.cost == 0 ? @string/free_price : courseItem.price}"
                     tools:text="2 990 Р" />
 
                 <TextView

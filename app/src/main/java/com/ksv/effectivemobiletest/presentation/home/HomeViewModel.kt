@@ -2,8 +2,13 @@ package com.ksv.effectivemobiletest.presentation.home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
+import androidx.paging.PagingData
+import androidx.paging.cachedIn
 import com.ksv.effectivemobiletest.data.Repository
 import com.ksv.effectivemobiletest.entity.CourseItem
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
@@ -13,6 +18,12 @@ class HomeViewModel : ViewModel() {
     private var coursesIdsList = listOf<Int>()
     private val _courses = MutableStateFlow<MutableList<CourseItem>>(mutableListOf())
     val courses = _courses.asStateFlow()
+
+    val pagedCourses: Flow<PagingData<CourseItem>> = Pager(
+        config = PagingConfig(pageSize = 20),
+        pagingSourceFactory = {CoursePagingSource()}
+    ).flow.cachedIn(viewModelScope)
+
     private val _isLoading = MutableStateFlow(false)
     val isLoading = _isLoading.asStateFlow()
     private val _sortingBy = MutableStateFlow(SortingTypes.DATE_DOWN)

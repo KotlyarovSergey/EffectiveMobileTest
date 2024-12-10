@@ -1,9 +1,26 @@
 package com.ksv.effectivemobiletest.data
 
 import android.util.Log
+import com.ksv.effectivemobiletest.data.entities.CourseDataResponse
 import com.ksv.effectivemobiletest.entity.CourseItem
 
 class Repository {
+    suspend fun getPagedCourse(page: Int): CourseDataResponse? {
+        val response = RetrofitInstance.getApi.coursesPaged(page)
+        return if (response.isSuccessful) {
+            val body = response.body()
+            if (body != null) {
+
+
+
+                return body
+            } else {
+                null
+            }
+        } else {
+            null
+        }
+    }
 
     suspend fun getNewestCoursesIdsList(): List<Int> {
         return getCoursesIdsAtList(1)

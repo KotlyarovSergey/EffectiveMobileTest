@@ -46,5 +46,8 @@ interface GetCourseApi {
 
     @GET("courses?tag=55")
     suspend fun getCourses(): Response<CourseDataResponse>
+
+    @GET("courses")
+    suspend fun coursesPaged(@Query("page") page: Int): Response<CourseDataResponse>
 }
 

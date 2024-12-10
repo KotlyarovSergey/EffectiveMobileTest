@@ -10,6 +10,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import com.ksv.effectivemobiletest.R
 import com.ksv.effectivemobiletest.databinding.FragmentHomeBinding
+import com.ksv.effectivemobiletest.entity.CourseItem
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 
@@ -18,6 +19,7 @@ class HomeFragment : Fragment() {
     private val binding get() = _binding!!
     private val viewModel: HomeViewModel by activityViewModels()
     private val recyclerListAdapter = CourseListAdapter { onDetailsClick(it) }
+    private val recyclerPagingAdapter = CoursesPagedListAdapter { onDetailsClick(it) }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,14 +34,19 @@ class HomeFragment : Fragment() {
         binding.viewModel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner
 
-        binding.recycler.adapter = recyclerListAdapter
+//        binding.recycler.adapter = recyclerListAdapter
+        binding.recycler.adapter = recyclerPagingAdapter
 
         binding.sortButton.setOnClickListener {
             BottomSortingFragment().show(parentFragmentManager, BottomSortingFragment.TAG)
         }
 
-        viewModel.courses.onEach { courses ->
-            recyclerListAdapter.submitList(courses)
+//        viewModel.courses.onEach { courses ->
+//            recyclerListAdapter.submitList(courses)
+//        }.launchIn(viewLifecycleOwner.lifecycleScope)
+
+        viewModel.pagedCourses.onEach {
+            recyclerPagingAdapter.submitData(it)
         }.launchIn(viewLifecycleOwner.lifecycleScope)
 
         viewModel.sortingBy.onEach { sortingType ->
@@ -59,6 +66,14 @@ class HomeFragment : Fragment() {
         Toast.makeText(
             requireContext(),
             "Переходим на курс под номером $index",
+            Toast.LENGTH_SHORT
+        ).show()
+    }
+
+    private fun onDetailsClick(course: CourseItem) {
+        Toast.makeText(
+            requireContext(),
+            "Переходим на курс #${course.id}",
             Toast.LENGTH_SHORT
         ).show()
     }
